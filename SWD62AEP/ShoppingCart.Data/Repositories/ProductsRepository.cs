@@ -9,7 +9,7 @@ using System.Text;
 
 namespace ShoppingCart.Data.Repositories
 {
-    class ProductsRepository : IProductsRepository
+    public class ProductsRepository : IProductsRepository
     {
 
         private ShoppingCartDbContext _context;

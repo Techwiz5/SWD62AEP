@@ -18,4 +18,4 @@ namespace ShoppingCart.Application.ViewModels
         public CategoryViewModel Category { get; set; }
     }
 }
-}
+
