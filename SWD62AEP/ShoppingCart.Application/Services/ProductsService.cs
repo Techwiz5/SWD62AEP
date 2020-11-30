@@ -2,6 +2,7 @@
 using ShoppingCart.Application.Interfaces;
 using ShoppingCart.Application.ViewModels;
 using ShoppingCart.Domain.Interfaces;
+using ShoppingCart.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,6 +50,27 @@ namespace ShoppingCart.Application.Services
 
             return myViewModel;
 
+        }
+
+        public void AddProduct(ProductViewModel data)
+        {
+
+            //AutoMapper (Nu Get package)
+
+            Product p = new Product();
+            p.Description = data.Description;
+            p.ImageUrl = data.ImageUrl;
+            p.Name = data.Name;
+            p.Price = data.Price;
+            p.CategoryId = data.Category.Id;
+
+            _productRepo.AddProduct(p);
+        }
+
+        public void DeleteProduct(Guid id)
+        {
+            if (_productRepo.GetProduct(id) != null)
+                _productRepo.DeleteProduct(id);
         }
     }
 }
